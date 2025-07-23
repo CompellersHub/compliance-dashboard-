@@ -1,0 +1,292 @@
+GET
+/recent-alerts
+
+{
+  "success": true,
+  "status": 200,
+  "data": {
+    "docs": [
+      {
+        "_id": "687cb719feba502d7e107576",
+        "fullName": "Olusegun Obasanjo",
+        "matches": [],
+        "newsArticles": [
+          {
+            "source": "Google News",
+            "title": "Former Nigerian leader Muhammadu Buhari dies aged 82",
+            "url": "https://www.bbc.com/news/articles/c89781qxnzdo",
+            "snippet": "The former military ruler was \"converted\" to democracy and won the historic 2015 elections.",
+            "publishedDate": "2025-07-13T16:51:25.000Z",
+            "relevanceScore": 75
+          },
+          {
+            "source": "Google News",
+            "title": "Bono blickt auf 1985 zurück: Vokuhila-Frisur überschattet Erinnerung",
+            "url": "https://www.stern.de/lifestyle/leute/bono-blickt-auf-1985-zurueck--vokuhila-frisur-ueberschattet-erinnerung-35891784.html",
+            "snippet": "Es war der größte Auftritt seines Lebens: Doch U2-Sänger Bono bereut, dass er beim Live-Aid-Benefizkonzert im Jahr 1985 einen Vokuhila trug.",
+            "publishedDate": "2025-07-14T09:26:00.000Z",
+            "relevanceScore": 75
+          },
+          {
+            "source": "Google News",
+            "title": "From military ruler to democrat - ex-Nigeria President Buhari's life in pictures",
+            "url": "https://www.bbc.com/news/articles/czxw2wn5v52o",
+            "snippet": "Muhammadu Buhari’s life tracked dramatic changes over decades – and he was often at the centre of events.",
+            "publishedDate": "2025-07-15T15:08:21.000Z",
+            "relevanceScore": 75
+          },
+          {
+            "source": "Google News",
+            "title": "Buhari tried his best for Nigeria – Obasanjo",
+            "url": "https://punchng.com/buhari-tried-his-best-for-nigeria-obasanjo/",
+            "snippet": "Former President Olusegun Obasanjo has said that late President Muhammadu Buhari was a patriot who tried his best to give the country the needed progress and development. Also, some other prominent Nigerians have paid tribute to the late former President Buha…",
+            "publishedDate": "2025-07-13T21:02:10.000Z",
+            "relevanceScore": 75
+          },
+          {
+            "source": "Google News",
+            "title": "Muhammadu Buhari: A general takes the final salute",
+            "url": "https://punchng.com/muhammadu-buhari-a-general-takes-the-final-salute/",
+            "snippet": "Former President Muhammadu Buhari, who passed away earlier today (Sunday), played a significant role in Nigeria’s political and military history over a span of four decades, serving both as a military ruler and later as a democratically elected president. Fro…",
+            "publishedDate": "2025-07-13T18:01:51.000Z",
+            "relevanceScore": 75
+          }
+        ],
+        "wikipediaData": null,
+        "aiAnalysis": {
+          "riskScore": 20,
+          "riskLevel": "LOW",
+          "summary": "Olusegun Obasanjo has no direct watchlist matches or negative news articles associated with him. His recent comments on the late President Buhari indicate a position of respect and engagement in political discourse.",
+          "detailedAnalysis": "The subject, Olusegun Obasanjo, is a prominent figure in Nigerian politics, having served as a former president. The absence of any direct watchlist matches or negative news articles suggests a low risk profile. The news articles primarily focus on the passing of another political figure, Muhammadu Buhari, and Obasanjo's respectful remarks about him, indicating a continued engagement in political matters without any indication of illicit activities or controversies surrounding the subject.",
+          "riskFactors": [
+            "No watchlist matches found",
+            "No negative news articles associated with the subject",
+            "Respectful engagement in political discourse"
+          ],
+          "recommendations": [
+            "Continue to monitor for any future news articles or developments related to the subject.",
+            "Maintain regular updates on the subject's political engagements and public statements.",
+            "Ensure that any potential changes in the subject's profile are assessed promptly."
+          ],
+          "bioDetails": {
+            "dateOfBirth": "April 3, 2023",
+            "placeOfBirth": "Not available",
+            "nationality": "Nigeria",
+            "occupation": "Politician",
+            "education": "Not available"
+          }
+        },
+        "newsSummary": "The articles collectively highlight the life and legacy of former Nigerian leader Muhammadu Buhari, emphasizing his transition from a military ruler to a democratically elected president and his impact on Nigeria's political landscape. There are no mentions of legal issues, sanctions, or regulatory actions in the articles. The overall sentiment is respectful and commemorative, with tributes from prominent figures, suggesting minimal reputational risks associated with his passing.",
+        "riskScore": 20,
+        "riskLevel": "LOW",
+        "responseTime": "30.36",
+        "createdAt": "2025-07-20T09:30:01.436Z",
+        "updatedAt": "2025-07-20T09:30:01.436Z",
+        "__v": 0
+      },
+      {
+        "_id": "687d4396c4f466f2ec6affad",
+        "fullName": "Obafemi awolowo",
+        "matches": [],
+        "newsArticles": [
+          {
+            "source": "Google News",
+            "title": "Oyo procures N7.7bn surveillance aircraft to combat insecurity",
+            "url": "https://punchng.com/oyo-procures-n7-7bn-surveillance-aircraft-to-combat-insecurity/",
+            "snippet": "The Oyo State Executive Council has approved the immediate procurement of two surveillance aircraft, valued at N7,763,360,000, to bolster security across the state. This was disclosed in a statement on Wednesday by the Commissioner for Information, Dotun Oyel…",
+            "publishedDate": "2025-07-09T11:15:54.000Z",
+            "relevanceScore": 75
+          },
+          {
+            "source": "Google News",
+            "title": "Africa’s freshwater ecosystems depend on little creatures like insects and snails: study maps overlooked species",
+            "url": "https://theconversation.com/africas-freshwater-ecosystems-depend-on-little-creatures-like-insects-and-snails-study-maps-overlooked-species-260078",
+            "snippet": "There’s a need for more surveys of macroinvertebrates in African countries.",
+            "publishedDate": "2025-07-13T08:21:47.000Z",
+            "relevanceScore": 75
+          },
+          {
+            "source": "Google News",
+            "title": "University admissions: Stakeholders abetting mediocrity",
+            "url": "https://punchng.com/university-admissions-stakeholders-abetting-mediocrity/",
+            "snippet": "IT is laughable that in a world driven by globally competitive academic standards, admissions to Nigerian universities and other tertiary institutions remain mired in ingrained mediocrity and declining standards. At the 2025 Policy Meeting on Admissions held …",
+            "publishedDate": "2025-07-12T23:28:26.000Z",
+            "relevanceScore": 75
+          },
+          {
+            "source": "Google News",
+            "title": "OAU Students Humble TML Vibez, Force Him to Prostrate Before Performing: \"Burna No Go Gree\"",
+            "url": "https://www.legit.ng/entertainment/celebrities/1662026-oau-students-humble-tml-vibez-force-prostrate-performing-video-trends/",
+            "snippet": "TML Vibez faced an unexpected challenge during a performance at Obafemi Awolowo University after students stopped his set and demanded he prostrate.",
+            "publishedDate": "2025-06-30T08:09:56.000Z",
+            "relevanceScore": 75
+          },
+          {
+            "source": "Google News",
+            "title": "Adekunle Gold Melts Hearts as He Gives Out N250K Each to 1st-Class Graduates: \"3rd Class Nko\"",
+            "url": "https://www.legit.ng/entertainment/celebrities/1664738-adekunle-gold-melts-hearts-n250k-class-graduates-3rd-class-nko/",
+            "snippet": "Singer Adekunle Gold hands out cash gifts to first-class graduates after asking for their transcripts on social media. He exempted Obafemi Awolowo University.",
+            "publishedDate": "2025-07-17T10:10:39.000Z",
+            "relevanceScore": 75
+          }
+        ],
+        "wikipediaData": null,
+        "aiAnalysis": {
+          "riskScore": 25,
+          "riskLevel": "LOW",
+          "summary": "The individual, Obafemi Awolowo, does not appear to have any significant risk factors associated with KYC/AML compliance. The available news articles do not indicate any illegal activities or negative associations.",
+          "detailedAnalysis": "The screening data for Obafemi Awolowo shows no direct matches with any watchlists, and the news articles related to him primarily focus on academic and cultural events rather than any illicit activities. Although his nationality is unknown, the context of the news suggests a connection to Nigeria, specifically through references to Obafemi Awolowo University, which may indicate a low risk of involvement in financial crimes or terrorism.",
+          "riskFactors": [
+            "No watchlist matches found",
+            "News articles do not indicate illegal activities",
+            "Association with educational institutions"
+          ],
+          "recommendations": [
+            "Continue to monitor for any future news or watchlist updates",
+            "Verify the individual's nationality and background for a more comprehensive profile",
+            "Maintain standard KYC procedures for ongoing transactions"
+          ],
+          "bioDetails": {
+            "dateOfBirth": "March 6, 1909",
+            "placeOfBirth": "Ikenne, Ogun State, Nigeria",
+            "nationality": "Nigerian",
+            "occupation": "Politician, lawyer, and educationist",
+            "education": "University of London, University of Oxford"
+          }
+        },
+        "newsSummary": "The articles highlight diverse themes, including efforts to enhance security in Oyo State through the procurement of surveillance aircraft, the ecological importance of macroinvertebrates in Africa, challenges in Nigerian university admissions, and notable events involving Nigerian musicians. There are no explicit mentions of legal issues, sanctions, or regulatory actions in the articles. The overall sentiment varies, with potential reputational risks for Nigerian educational institutions due to perceived mediocrity in admissions, while the procurement of aircraft and charitable acts by musicians could positively influence public perception.",
+        "riskScore": 25,
+        "riskLevel": "LOW",
+        "responseTime": "17.95",
+        "createdAt": "2025-07-20T19:29:26.775Z",
+        "updatedAt": "2025-07-20T19:29:26.775Z",
+        "__v": 0
+      },
+      {
+        "_id": "687d4399c4f466f2ec6affaf",
+        "fullName": "Olusegun Mimiko",
+        "matches": [],
+        "newsArticles": [],
+        "wikipediaData": null,
+        "aiAnalysis": {
+          "riskScore": 50,
+          "riskLevel": "MEDIUM",
+          "summary": "Olusegun Mimiko presents a medium risk profile due to the lack of comprehensive information regarding his nationality and potential watchlist matches. Further investigation into his background and activities is recommended.",
+          "detailedAnalysis": "The absence of detailed information such as nationality and date of birth raises concerns about the completeness of the KYC profile for Olusegun Mimiko. While there are no immediate red flags from watchlist matches or news articles, the lack of transparency could indicate potential risks. It is essential to conduct further due diligence to ascertain his background, especially if he is involved in sectors that are typically high-risk for financial crimes.",
+          "riskFactors": [
+            "Unknown nationality",
+            "Lack of date of birth information",
+            "No watchlist matches or news articles indicating criminal activity"
+          ],
+          "recommendations": [
+            "Conduct enhanced due diligence to gather more information about the subject's background.",
+            "Engage with local authorities or utilize third-party services to verify the subject's identity and nationality.",
+            "Monitor the subject for any future developments or changes in risk profile."
+          ],
+          "bioDetails": {
+            "dateOfBirth": "February 3, 1954",
+            "placeOfBirth": "Ondo City, Ondo State, Nigeria",
+            "nationality": "Nigerian",
+            "occupation": "Politician, former Governor of Ondo State",
+            "education": "University of Ibadan"
+          }
+        },
+        "newsSummary": null,
+        "riskScore": 50,
+        "riskLevel": "MEDIUM",
+        "responseTime": "20.81",
+        "createdAt": "2025-07-20T19:29:29.641Z",
+        "updatedAt": "2025-07-20T19:29:29.641Z",
+        "__v": 0
+      },
+      {
+        "_id": "687dcefcf1b9f602efdf61c5",
+        "fullName": "Buhari",
+        "matches": [],
+        "newsArticles": [
+          {
+            "source": "Google News",
+            "title": "Nigeria's former President Muhammadu Buhari dies at 82",
+            "url": "https://www.npr.org/2025/07/13/nx-s1-5466180/nigerias-former-president-muhammadu-buhari-dies-at-82",
+            "snippet": "Nigeria's former president Muhammadu Buhari — who once ruled as a military dictator before returning decades later as an elected leader — has died at 82.",
+            "publishedDate": "2025-07-13T19:06:37.000Z",
+            "relevanceScore": 75
+          },
+          {
+            "source": "Google News",
+            "title": "Former Nigerian leader Muhammadu Buhari dies aged 82",
+            "url": "https://www.bbc.com/news/articles/c89781qxnzdo",
+            "snippet": "The former military ruler was \"converted\" to democracy and won the historic 2015 elections.",
+            "publishedDate": "2025-07-13T16:51:25.000Z",
+            "relevanceScore": 75
+          },
+          {
+            "source": "Google News",
+            "title": "Nigerians “divided” over former President Buhari’s legacy",
+            "url": "https://www.aljazeera.com/video/quotable/2025/7/14/nigerians-divided-over-former-president-buharis-legacy",
+            "snippet": "“The three promises Buhari made coming into power are still the issues bedevilling Nigeria today.”",
+            "publishedDate": "2025-07-14T08:48:54.000Z",
+            "relevanceScore": 75
+          },
+          {
+            "source": "Google News",
+            "title": "Nigeria’s ex-President Muhammadu Buhari dies in London aged 82",
+            "url": "https://www.aljazeera.com/news/2025/7/13/nigerias-former-president-muhammadu-buhari-dies-in-london-aged-82",
+            "snippet": "Buhari, remembered for an anti-corruption drive and faltering economy, leaves behind a contentious legacy.",
+            "publishedDate": "2025-07-13T20:28:52.000Z",
+            "relevanceScore": 75
+          },
+          {
+            "source": "Google News",
+            "title": "Former Nigerian President Buhari to be buried in hometown on Tuesday",
+            "url": "https://www.aljazeera.com/news/2025/7/14/former-nigerian-president-buhari-to-be-buried-in-hometown-on-tuesday",
+            "snippet": "Muhammadu Buhari, who was the country's democratic leader between 2015 and 2023, died aged 82 in London on Sunday.",
+            "publishedDate": "2025-07-14T17:31:12.000Z",
+            "relevanceScore": 75
+          }
+        ],
+        "wikipediaData": null,
+        "aiAnalysis": {
+          "riskScore": 20,
+          "riskLevel": "LOW",
+          "summary": "The subject, an individual named Buhari from Nigeria, has no direct watchlist matches or adverse media associated with them. The news articles pertain to a former president with the same name, indicating a low risk of confusion or misidentification.",
+          "detailedAnalysis": "The screening data reveals that the subject shares a name with a prominent political figure in Nigeria, specifically Muhammadu Buhari, who served as president. However, the subject's date of birth indicates they are a child born in 2020, which significantly reduces the likelihood of any involvement in activities that would raise KYC/AML concerns. The news articles are focused on the former president's death and legacy rather than any criminal activity, further supporting a low risk assessment.",
+          "riskFactors": [
+            "No direct watchlist matches for the subject.",
+            "The subject is a minor, born in 2020.",
+            "News articles relate to a deceased public figure, not the subject."
+          ],
+          "recommendations": [
+            "Continue to monitor for any changes in the subject's status or any new information.",
+            "Ensure that the subject's records are clearly differentiated from those of the former president.",
+            "Maintain updated KYC documentation as the subject matures."
+          ],
+          "bioDetails": {
+            "dateOfBirth": "March 05, 2020",
+            "placeOfBirth": "Unknown",
+            "nationality": "Nigeria",
+            "occupation": "N/A",
+            "education": "N/A"
+          }
+        },
+        "newsSummary": "The articles report on the death of Nigeria's former President Muhammadu Buhari at the age of 82, highlighting his transition from a military ruler to a democratically elected leader. Key themes include his anti-corruption efforts, economic challenges, and a legacy that divides public opinion. There are no explicit mentions of legal issues, sanctions, or regulatory actions, but the mixed sentiment surrounding his leadership could pose reputational risks, particularly concerning his unfulfilled promises and economic management.",
+        "riskScore": 20,
+        "riskLevel": "LOW",
+        "responseTime": "21.43",
+        "createdAt": "2025-07-21T05:24:12.282Z",
+        "updatedAt": "2025-07-21T05:24:12.282Z",
+        "__v": 0
+      }
+    ],
+    "totalDocs": 6,
+    "offset": 0,
+    "limit": 4,
+    "totalPages": 2,
+    "page": 1,
+    "pagingCounter": 1,
+    "hasPrevPage": false,
+    "hasNextPage": true,
+    "prevPage": null,
+    "nextPage": 2
+  }
+}
