@@ -28,7 +28,7 @@ interface ScreeningResult {
   _id?: string;
   fullName: string;
   aiAnalysis?: {
-    riskLevel?: 'LOW' | 'MEDIUM' | 'HIGH' | 'UNKNOWN';
+    riskLevel?: "LOW" | "MEDIUM" | "HIGH" | "UNKNOWN";
     riskScore?: number;
     bioDetails?: {
       nationality?: string;
@@ -55,7 +55,7 @@ export function BatchResults() {
     batchLoading,
     error: batchError,
     // resetBatchResults,
-  // } = useData<{ batchResults?: BatchScreeningResponse }>();
+    // } = useData<{ batchResults?: BatchScreeningResponse }>();
   } = useData();
 
   if (batchLoading) {
@@ -110,19 +110,22 @@ export function BatchResults() {
     );
   }
 
-  if (!batchResults?.data?.data) {
+  if (!(batchResults as any)?.data?.data) {
     return null;
   }
 
-  const { data, successCount, errorCount } = batchResults.data;
+  const { data, successCount, errorCount } = (batchResults as any)?.data;
   const allResults = data.flat();
   const totalRecords = successCount + errorCount;
 
-  const riskCounts = allResults.reduce((acc: Record<string, number>, result: ScreeningResult) => {
-    const level = result.aiAnalysis?.riskLevel || "UNKNOWN";
-    acc[level] = (acc[level] || 0) + 1;
-    return acc;
-  }, {} as Record<string, number>);
+  const riskCounts = allResults.reduce(
+    (acc: Record<string, number>, result: ScreeningResult) => {
+      const level = result.aiAnalysis?.riskLevel || "UNKNOWN";
+      acc[level] = (acc[level] || 0) + 1;
+      return acc;
+    },
+    {} as Record<string, number>
+  );
 
   const handleExportResults = () => {
     const csvData = convertToCSV(allResults);
@@ -262,7 +265,7 @@ export function BatchResults() {
               </TableHeader>
               <TableBody>
                 {allResults.length > 0 ? (
-                  allResults.map((result, index) => (
+                  (allResults as ScreeningResult[]).map((result, index) => (
                     <TableRow
                       key={result._id || index}
                       className="hover:bg-blue-50/30 transition-colors"

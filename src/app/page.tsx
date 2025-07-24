@@ -1,26 +1,21 @@
 "use client";
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react"; // Import Suspense
 
 import { QuickScreenForm } from "@/components/quick-screen-form";
-// import { ScreeningResults } from "@/components/screening-results";
 import { BatchScreenForm } from "@/components/batch-screen-form";
 import { BatchResults } from "@/components/batch-screen-results";
 import { ScreeningResults } from "@/components/screening-results";
 import { AlertPage } from "@/components/alert-analysis";
 import { MonthlyScreeningData } from "@/components/monthly-screening";
 
-// import CalendarPage from "../(admin)/(others-pages)/calendar/page";
-
-export default function DashboardPage() {
+// Create a separate component for the content that uses useSearchParams
+function DashboardContent() {
   const searchParams = useSearchParams();
-  // const router = useRouter();
   const activeTab = searchParams.get("tab") || "dashboard";
 
-  // Demo components - replace with your actual imports
   const TabContent = () => {
     switch (activeTab) {
-      //   case "dashboard":
-      //     return <DashboardContent />;
       case "batch-screen":
         return (
           <div>
@@ -28,58 +23,45 @@ export default function DashboardPage() {
             <BatchResults />
           </div>
         );
-
       case "quick-screen":
-        // return <CalendarPage />;
-        // return <QuickScreenForm />;
         return (
           <div className="space-y-8 w-full">
             <QuickScreenForm />
             <ScreeningResults />
           </div>
         );
-
       case "alert-analysis":
-        // return <CalendarPage />;
-        // return <QuickScreenForm />;
         return (
           <div className="space-y-8 w-full">
             <AlertPage />
-            {/* <ScreeningResults /> */}
-          </div>
-        );
-      case "alert-analysis":
-        // return <CalendarPage />;
-        // return <QuickScreenForm />;
-        return (
-          <div className="space-y-8 w-full">
-            <AlertPage />
-            {/* <ScreeningResults /> */}
           </div>
         );
       case "monthly-screening":
-        // return <CalendarPage />;
-        // return <QuickScreenForm />;
         return (
           <div className="space-y-8 w-full">
             <MonthlyScreeningData/>
-            {/* <ScreeningResults /> */}
           </div>
         );
-      //   case "settings":
-      //     return <SettingsContent />;
-      //   default:
-      //     return <DashboardContent />;
+      default:
+        return null;
     }
   };
 
   return (
     <div className="p-6">
-      {/* Main Content Area */}
       <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow w-full">
         <TabContent />
       </div>
     </div>
+  );
+}
+
+// Main page component with Suspense boundary
+export default function DashboardPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <DashboardContent />
+    </Suspense>
   );
 }
 

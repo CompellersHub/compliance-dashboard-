@@ -79,7 +79,7 @@ export function MonthlyScreeningData() {
             <CardHeader className="pb-2">
               <div className="flex items-center justify-between">
                 <span className="text-sm font-medium">Alert Rate</span>
-                <Badge variant={alertRate > 5 ? "destructive" : "success"}>
+                <Badge variant={alertRate > 5 ? "destructive" : "default"}>
                   {alertRate.toFixed(1)}%
                 </Badge>
               </div>
