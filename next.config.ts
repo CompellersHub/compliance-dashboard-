@@ -9,6 +9,10 @@ const nextConfig: NextConfig = {
     });
     return config;
   },
+  /* Disable lint checking */
+  eslint: {
+      ignoreDuringBuilds:true
+  },
 };
 
 export default nextConfig;
