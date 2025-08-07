@@ -1,0 +1,72 @@
+
+name: App Deployment
+run-name: "Deployment started by @${{github.actor}} on commit ${{ github.sha }}"
+on:
+  workflow_dispatch:
+  #push:
+  #  branches: [main]
+
+env:
+  TARGET_DIR: dist-build
+
+jobs:
+  build-app:
+    name: Build and save as artifacts
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v3.9.1
+        with:
+          node-version: 23.11.0
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install
+      - name: Build app
+        env:
+          NODE_ENV: production
+        run: pnpm build
+      - name: Build Version ${{ github.sha }}
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: Save build
+        id: save-build
+        uses: actions/upload-artifact@v4
+        with:
+          name: build
+          overwrite: true
+          path: .next
+      - name: Output artifact URL
+        run:  echo 'Artifact URL is ${{ steps.save-build.outputs.artifact-url }}'
+  
+  deploy-app:
+    name: "Deploy application on server"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Build
+        uses: actions/download-artifact@v4
+        with:
+          artifact-id: ${{ steps.save-build.outputs.artifact-id }}
+
+      - name: Copying Build to server
+        uses: appleboy/scp-action@v1
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_KEY }}
+          port: ${{ secrets.DEPLOY_KEY }}
+          source: build
+          target: $TARGET_DIR
+
+      - name: Restarting Nginx server
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_KEY }}
+          port: ${{ secrets.DEPLOY_KEY }}
+          script: |
+            cd ${{ env.TARGET_DIR }}
+            mv build .next
+            pm2 restart all
