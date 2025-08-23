@@ -1,58 +1,35 @@
 "use client";
 
+import { ThemeProvider as NextThemeProvider } from "next-themes";
+import { useTheme as useNextTheme } from "next-themes";
 import type React from "react";
-import { createContext, useState, useContext, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-type Theme = "light" | "dark";
+// ✅ Provider (no need to manage localStorage or classes manually)
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  const [mounted, setMounted] = useState(false);
 
-type ThemeContextType = {
-  theme: Theme;
-  toggleTheme: () => void;
-};
+  useEffect(() => setMounted(true), []);
 
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+  if (!mounted) return null; // or a loader/spinner
+  return (
+    <NextThemeProvider
+      attribute="class"
+      defaultTheme="dark"   // can be "system", "dark", or "light"
+      enableSystem={false}   // disable system preference if you want manual toggle only
+    >
+      {children}
+    </NextThemeProvider>
+  );
+}
 
-export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
-  const [theme, setTheme] = useState<Theme>("light");
-  const [isInitialized, setIsInitialized] = useState(false);
-
-  useEffect(() => {
-    // This code will only run on the client side
-    const savedTheme = localStorage.getItem("theme") as Theme | null;
-    const initialTheme = savedTheme || "light"; // Default to light theme
-
-    setTheme(initialTheme);
-    setIsInitialized(true);
-  }, []);
-
-  useEffect(() => {
-    if (isInitialized) {
-      localStorage.setItem("theme", theme);
-      if (theme === "dark") {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-      }
-    }
-  }, [theme, isInitialized]);
+// ✅ Hook wrapper (so you can call useTheme like your old version)
+export const useTheme = () => {
+  const { theme, setTheme } = useNextTheme();
 
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+    setTheme(theme === "light" ? "dark" : "light");
   };
 
-  return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
-  );
-};
-
-export const useTheme = () => {
-  const context = useContext(ThemeContext);
-  if (context === undefined) {
-    throw new Error("useTheme must be used within a ThemeProvider");
-  }
-  return context;
+  return { theme, toggleTheme };
 };

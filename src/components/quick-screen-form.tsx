@@ -50,7 +50,7 @@ export function QuickScreenForm() {
   });
 
   return (
-    <Card className="">
+    <Card className="dark:bg-gray-800 dark:border-gray-700">
       <CardContent className="pt-6">
         <Form {...form}>
           <form
@@ -63,11 +63,15 @@ export function QuickScreenForm() {
                 name="fullName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Full Name *</FormLabel>
+                    <FormLabel className="dark:text-gray-300">Full Name *</FormLabel>
                     <FormControl>
-                      <Input placeholder="Enter full name" {...field} />
+                      <Input 
+                        placeholder="Enter full name" 
+                        className="dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400"
+                        {...field} 
+                      />
                     </FormControl>
-                    <FormMessage />
+                    <FormMessage className="dark:text-red-400" />
                   </FormItem>
                 )}
               />
@@ -77,25 +81,40 @@ export function QuickScreenForm() {
                 name="entityType"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Entity Type</FormLabel>
+                    <FormLabel className="dark:text-gray-300">Entity Type</FormLabel>
                     <Select
                       onValueChange={field.onChange}
                       defaultValue={field.value}
                     >
                       <FormControl>
-                        <SelectTrigger className="w-full">
+                        <SelectTrigger className="w-full dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                           <SelectValue placeholder="Select entity type" />
                         </SelectTrigger>
                       </FormControl>
-                      <SelectContent>
-                        <SelectItem value="Individual">Individual</SelectItem>
-                        <SelectItem value="Company">Company</SelectItem>
-                        <SelectItem value="Organization">
-                          Organization
+                      <SelectContent 
+                        className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-lg rounded-md z-50"
+                      >
+                        <SelectItem 
+                          value="Individual" 
+                          className="dark:hover:bg-gray-700 dark:focus:bg-gray-700"
+                        >
+                          Individual
+                        </SelectItem>
+                        <SelectItem 
+                          value="Company"
+                          className="dark:hover:bg-gray-700 dark:focus:bg-gray-700"
+                        >
+                          Company
+                        </SelectItem>
+                        <SelectItem 
+                          value="Organization"
+                          className="dark:hover:bg-gray-700 dark:focus:bg-gray-700"
+                        >
+                          Vessel
                         </SelectItem>
                       </SelectContent>
                     </Select>
-                    <FormMessage />
+                    <FormMessage className="dark:text-red-400" />
                   </FormItem>
                 )}
               />
@@ -105,15 +124,15 @@ export function QuickScreenForm() {
                 name="dateOfBirth"
                 render={({ field }) => (
                   <FormItem className="flex flex-col">
-                    <FormLabel>Date of Birth</FormLabel>
+                    <FormLabel className="dark:text-gray-300">Date of Birth</FormLabel>
                     <Popover>
                       <PopoverTrigger asChild>
                         <FormControl>
                           <Button
                             variant={"outline"}
                             className={cn(
-                              "w-full pl-3 text-left font-normal",
-                              !field.value && "text-muted-foreground"
+                              "w-full pl-3 text-left font-normal dark:bg-gray-700 dark:border-gray-600 dark:text-white",
+                              !field.value && "text-muted-foreground dark:text-gray-400"
                             )}
                           >
                             {field.value ? (
@@ -121,11 +140,14 @@ export function QuickScreenForm() {
                             ) : (
                               <span>Pick a date</span>
                             )}
-                            <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                            <CalendarIcon className="ml-auto h-4 w-4 opacity-50 dark:opacity-70" />
                           </Button>
                         </FormControl>
                       </PopoverTrigger>
-                      <PopoverContent className="w-auto p-0" align="start">
+                      <PopoverContent 
+                        className="w-auto p-0 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-lg rounded-md z-50" 
+                        align="start"
+                      >
                         <Calendar
                           mode="single"
                           selected={
@@ -141,11 +163,17 @@ export function QuickScreenForm() {
                           captionLayout="dropdown"
                           fromYear={1900}
                           toYear={new Date().getFullYear()}
+                          className="dark:bg-gray-800"
+                          styles={{
+                            day: {
+                              color: 'var(--foreground)'
+                            }
+                          }}
                         />
                       </PopoverContent>
                     </Popover>
-                    <FormDescription>Optional for individuals</FormDescription>
-                    <FormMessage />
+                    <FormDescription className="dark:text-gray-400">Optional for individuals</FormDescription>
+                    <FormMessage className="dark:text-red-400" />
                   </FormItem>
                 )}
               />
@@ -155,25 +183,31 @@ export function QuickScreenForm() {
                 name="nationality"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Nationality</FormLabel>
+                    <FormLabel className="dark:text-gray-300">Nationality</FormLabel>
                     <Select
                       onValueChange={field.onChange}
                       defaultValue={field.value}
                     >
                       <FormControl>
-                        <SelectTrigger className="w-full">
+                        <SelectTrigger className="w-full dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                           <SelectValue placeholder="Select nationality" />
                         </SelectTrigger>
                       </FormControl>
-                      <SelectContent>
+                      <SelectContent
+                        className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-lg rounded-md z-50 max-h-60 overflow-auto"
+                      >
                         {countries.map((country) => (
-                          <SelectItem key={country} value={country}>
+                          <SelectItem 
+                            key={country} 
+                            value={country}
+                            className="dark:hover:bg-gray-700 dark:focus:bg-gray-700"
+                          >
                             {country}
                           </SelectItem>
                         ))}
                       </SelectContent>
                     </Select>
-                    <FormMessage />
+                    <FormMessage className="dark:text-red-400" />
                   </FormItem>
                 )}
               />
@@ -183,25 +217,31 @@ export function QuickScreenForm() {
                 name="country"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Country</FormLabel>
+                    <FormLabel className="dark:text-gray-300">Country</FormLabel>
                     <Select
                       onValueChange={field.onChange}
                       defaultValue={field.value}
                     >
                       <FormControl>
-                        <SelectTrigger className="w-full">
+                        <SelectTrigger className="w-full dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                           <SelectValue placeholder="Select country" />
                         </SelectTrigger>
                       </FormControl>
-                      <SelectContent>
+                      <SelectContent
+                        className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-lg rounded-md z-50 max-h-60 overflow-auto"
+                      >
                         {countries.map((country) => (
-                          <SelectItem key={country} value={country}>
+                          <SelectItem 
+                            key={country} 
+                            value={country}
+                            className="dark:hover:bg-gray-700 dark:focus:bg-gray-700"
+                          >
                             {country}
                           </SelectItem>
                         ))}
                       </SelectContent>
                     </Select>
-                    <FormMessage />
+                    <FormMessage className="dark:text-red-400" />
                   </FormItem>
                 )}
               />
@@ -211,15 +251,15 @@ export function QuickScreenForm() {
                 name="additionalInfo"
                 render={({ field }) => (
                   <FormItem className="md:col-span-2">
-                    <FormLabel>Additional Information (Optional)</FormLabel>
+                    <FormLabel className="dark:text-gray-300">Additional Information (Optional)</FormLabel>
                     <FormControl>
                       <Textarea
                         placeholder="Address or other identifying information..."
-                        className="resize-none"
+                        className="resize-none dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400"
                         {...field}
                       />
                     </FormControl>
-                    <FormMessage />
+                    <FormMessage className="dark:text-red-400" />
                   </FormItem>
                 )}
               />
@@ -227,7 +267,7 @@ export function QuickScreenForm() {
 
             <Button
               type="submit"
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white hover:cursor-default"
+              className="w-full bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800 text-white hover:cursor-default"
               disabled={isLoading}
             >
               <Search className="mr-2 h-4 w-4" />

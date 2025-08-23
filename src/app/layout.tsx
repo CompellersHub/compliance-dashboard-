@@ -4,13 +4,14 @@ import { Outfit } from "next/font/google";
 import "./globals.css";
 
 import { SidebarProvider, useSidebar } from "@/context/SidebarContext";
-import { ThemeProvider } from "@/context/ThemeContext";
+// import { ThemeProvider } from "@/context/ThemeContext";
 import { DataProvider } from "@/context/DataContext";
 
 import React from "react";
 import AppHeader from "@/layout/AppHeader";
 import AppSidebar from "@/layout/AppSidebar";
 import Backdrop from "@/layout/Backdrop";
+import { ThemeProvider } from "@/context/ThemeContext";
 
 const outfit = Outfit({
   subsets: ["latin"],

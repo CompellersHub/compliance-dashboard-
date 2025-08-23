@@ -1,32 +1,3 @@
-// import { NextApiRequest, NextApiResponse } from 'next';
-// import { fetchBackend } from '@/utils/api';
-// import { ApiResponse, AlertAnalysisData } from '@/types/api';
-// // import { AlertAnalysisData } from 
-
-// export default async function handler(
-//   req: NextApiRequest,
-//   res: NextApiResponse<ApiResponse<AlertAnalysisData[]>>
-// ) {
-//   try {
-//     if (req.method !== 'GET') {
-//       return res.status(405).json({ 
-//         success: false, 
-//         status: 405, 
-//         data: [] 
-//       });
-//     }
-
-//     const data = await fetchBackend<ApiResponse<AlertAnalysisData[]>>('/alert-analysis');
-//     res.status(200).json(data);
-//   } catch (error) {
-//     console.error('Error in /api/alert-analysis:', error);
-//     res.status(500).json({ 
-//       success: false, 
-//       status: 500, 
-//       data: [] 
-//     });
-//   }
-// }
 
 import { NextRequest, NextResponse } from "next/server";
 

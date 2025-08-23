@@ -3,6 +3,8 @@ import { ThemeToggleButton } from "@/components/common/ThemeToggleButton";
 import NotificationDropdown from "@/components/header/NotificationDropdown";
 import UserDropdown from "@/components/header/UserDropdown";
 import { useSidebar } from "@/context/SidebarContext";
+import { useTheme } from "@/context/ThemeContext";
+import { Moon, Sun } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
@@ -39,6 +41,24 @@ const AppHeader: React.FC = () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
+
+  const ThemeToggleButton = () => {
+    const { theme, toggleTheme } = useTheme();
+
+    return (
+      <button
+        onClick={toggleTheme}
+        className="flex items-center justify-center w-10 h-10 rounded-lg text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800 lg:w-11 lg:h-11"
+        aria-label="Toggle Theme"
+      >
+        {theme === "light" ? (
+          <Moon className="w-5 h-5" />
+        ) : (
+          <Sun className="w-5 h-5" />
+        )}
+      </button>
+    );
+  };
 
   return (
     <header className="sticky top-0 flex w-full bg-white border-gray-200 z-99999 dark:border-gray-800 dark:bg-gray-900 lg:border-b">
@@ -95,16 +115,16 @@ const AppHeader: React.FC = () => {
               width={154}
               height={32}
               className="hidden dark:block"
-              src="/images/logo.png"
+              src="/images/logo-white.png"
               alt="Logo"
             />
           </Link>
 
           <button
             onClick={toggleApplicationMenu}
-            className="flex items-center justify-center w-10 h-10 text-gray-700 rounded-lg z-99999 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800 lg:hidden"
+            className="flex items-center justify-center w-10 h-10 text-gray-700 rounded-lg z-99999 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800"
           >
-            <svg
+            {/* <svg
               width="24"
               height="24"
               viewBox="0 0 24 24"
@@ -117,25 +137,23 @@ const AppHeader: React.FC = () => {
                 d="M5.99902 10.4951C6.82745 10.4951 7.49902 11.1667 7.49902 11.9951V12.0051C7.49902 12.8335 6.82745 13.5051 5.99902 13.5051C5.1706 13.5051 4.49902 12.8335 4.49902 12.0051V11.9951C4.49902 11.1667 5.1706 10.4951 5.99902 10.4951ZM17.999 10.4951C18.8275 10.4951 19.499 11.1667 19.499 11.9951V12.0051C19.499 12.8335 18.8275 13.5051 17.999 13.5051C17.1706 13.5051 16.499 12.8335 16.499 12.0051V11.9951C16.499 11.1667 17.1706 10.4951 17.999 10.4951ZM13.499 11.9951C13.499 11.1667 12.8275 10.4951 11.999 10.4951C11.1706 10.4951 10.499 11.1667 10.499 11.9951V12.0051C10.499 12.8335 11.1706 13.5051 11.999 13.5051C12.8275 13.5051 13.499 12.8335 13.499 12.0051V11.9951Z"
                 fill="currentColor"
               />
-            </svg>
+            </svg> */}
+            <ThemeToggleButton />
           </button>
+          {/* <button>
+            test
+          </button> */}
         </div>
-        <div
+        {/* <div
           className={`${
             isApplicationMenuOpen ? "flex" : "hidden"
           } items-center justify-between w-full gap-4 px-5 py-4 lg:flex shadow-theme-md lg:justify-end lg:px-0 lg:shadow-none`}
         >
           <div className="flex items-center gap-2 2xsm:gap-3">
-            {/* <!-- Dark Mode Toggler --> */}
-            {/* <ThemeToggleButton /> */}
-            {/* <!-- Dark Mode Toggler --> */}
-
-            {/* <NotificationDropdown />  */}
-            {/* <!-- Notification Menu Area --> */}
+          
           </div>
-          {/* <!-- User Area --> */}
           <UserDropdown />
-        </div>
+        </div> */}
       </div>
     </header>
   );

@@ -5,9 +5,11 @@ import { Suspense } from "react";
 import { QuickScreenForm } from "@/components/quick-screen-form";
 import { BatchScreenForm } from "@/components/batch-screen-form";
 import { BatchResults } from "@/components/batch-screen-results";
-import { ScreeningResults } from "@/components/screening-results";
+// import { ScreeningResults } from "@/components/screening-results";
 import { AlertPage } from "@/components/alert-analysis";
 import { MonthlyScreeningData } from "@/components/monthly-screening";
+import { ScreeningResults } from "@/components/screening-results";
+// import ScreeningResults from "@/components/screening-results";
 
 function DashboardContent() {
   const searchParams = useSearchParams();
@@ -15,19 +17,18 @@ function DashboardContent() {
 
   const TabContent = () => {
     switch (activeTab) {
-      case "batch-screen":
-        return (
-          <div>
-            <BatchScreenForm />
-            <BatchResults />
-          </div>
-        );
-
       case "quick-screen":
         return (
           <div className="space-y-8 w-full">
             <QuickScreenForm />
             <ScreeningResults />
+          </div>
+        );
+      case "batch-screen":
+        return (
+          <div>
+            <BatchScreenForm />
+            <BatchResults />
           </div>
         );
 
@@ -41,7 +42,7 @@ function DashboardContent() {
       case "monthly-screening":
         return (
           <div className="space-y-8 w-full">
-            <MonthlyScreeningData/>
+            <MonthlyScreeningData />
           </div>
         );
 

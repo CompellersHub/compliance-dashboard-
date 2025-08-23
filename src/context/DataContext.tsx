@@ -9,28 +9,40 @@ import {
 } from "react";
 import { toast } from "sonner";
 import { z } from "zod";
-
 interface ApiResponse {
   success: boolean;
   status: number;
-  data: any;
+  data: ScreeningResult[]; // Changed from 'any' to array of ScreeningResult
 }
 
 interface ScreeningResult {
-  matches: any[];
-  newsArticles: any[];
-  wikipediaData: any;
-  aiAnalysis: {
-    riskScore: number;
-    riskLevel: string;
-    summary: string;
-    detailedAnalysis: string;
-    riskFactors: string[];
-    recommendations: string[];
+  _id: string;
+  fullName: string;
+  matches?: any[];
+  newsArticles?: any[];
+  wikipediaData?: any;
+  aiAnalysis?: {
+    riskScore?: number;
+    riskLevel?: string;
+    summary?: string;
+    detailedAnalysis?: string;
+    riskFactors?: string[];
+    recommendations?: string[];
+    bioDetails?: {
+      dateOfBirth?: string;
+      placeOfBirth?: string;
+      nationality?: string;
+      occupation?: string;
+      education?: string;
+    };
   };
-  newsSummary: string;
+  riskScore?: number;
+  riskLevel?: string;
+  responseTime?: string;
+  createdAt?: string;
+  updatedAt?: string;
+  newsSummary?: string;
 }
-
 export const screeningInputSchema = z.object({
   fullName: z.string().min(2),
   entityType: z.string().default("Individual"),
@@ -40,7 +52,73 @@ export const screeningInputSchema = z.object({
   additionalInfo: z.string().optional(),
 });
 
+
+
+// Update the interfaces in your DataContext
 interface BatchScreeningResult {
+  _id: string;
+  fullName: string;
+  matches: any[];
+  newsArticles: {
+    source: string;
+    title: string;
+    url: string;
+    snippet: string;
+    publishedDate: string;
+    relevanceScore: number;
+  }[];
+  wikipediaData: {
+    source: string;
+    title: string;
+    extract: string;
+    url: string;
+    thumbnail: string;
+  };
+  aiAnalysis: {
+    riskScore: number;
+    riskLevel: "LOW" | "MEDIUM" | "HIGH" | "UNKNOWN";
+    summary: string;
+    detailedAnalysis: string;
+    riskFactors: string[];
+    recommendations: string[];
+    bioDetails: {
+      dateOfBirth: string;
+      placeOfBirth: string;
+      nationality: string;
+      occupation: string;
+      education: string;
+    };
+  };
+  newsSummary: string;
+  riskScore: number;
+  riskLevel: string;
+  responseTime: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+}
+
+interface BatchScreeningResponse {
+  success: boolean;
+  status: number;
+  data: {
+    data: BatchScreeningResult[][]; // Array of arrays of ScreeningResult
+    headers: string[];
+    metadata: {
+      rowCount: number;
+    };
+    successCount: number;
+    errorCount: number;
+  };
+}
+
+
+interface BatchScreeningResult {
+  data?: {
+    data: ScreeningResult[][];
+    successCount: number;
+    errorCount: number;
+  };
   csvData?: string;
   htmlContent?: string;
   jsonContent?: any;
@@ -50,7 +128,7 @@ export type ScreeningInput = z.infer<typeof screeningInputSchema>;
 
 interface DataContextType {
   // Screening data and states
-  results: ScreeningResult | null;
+  results: ScreeningResult[] | null; // Changed to array
   batchResults: BatchScreeningResult | null;
   isLoading: boolean;
   batchLoading: boolean;
@@ -86,7 +164,7 @@ const DataContext = createContext<DataContextType | undefined>(undefined);
 
 export function DataProvider({ children }: { children: ReactNode }) {
   // Existing states
-  const [results, setResults] = useState<ScreeningResult | null>(null);
+  const [results, setResults] = useState<ScreeningResult[] | null>(null); // Changed to array
   const [batchResults, setBatchResults] = useState<BatchScreeningResult | null>(
     null
   );
@@ -121,7 +199,6 @@ export function DataProvider({ children }: { children: ReactNode }) {
   const performScreening = async (inputData: ScreeningInput) => {
     setIsLoading(true);
     setError(null);
-
     try {
       const payload = {
         fullName: inputData.fullName,
@@ -152,25 +229,10 @@ export function DataProvider({ children }: { children: ReactNode }) {
       }
 
       const data: ApiResponse = await response.json();
-      const screeningResult: ScreeningResult | undefined =
-        data.data && data.data[0];
 
-      const safeResults: ScreeningResult = screeningResult || {
-        matches: [],
-        newsArticles: [],
-        wikipediaData: null,
-        aiAnalysis: {
-          riskScore: 0,
-          riskLevel: "Unknown",
-          summary: "No analysis available",
-          detailedAnalysis: "No detailed analysis available",
-          riskFactors: [],
-          recommendations: [],
-        },
-        newsSummary: "No news summary available",
-      };
+      // Set the array of results directly
+      setResults(data.data || []); // Changed to use data.data array
 
-      setResults(safeResults);
       toast.success("Screening completed");
     } catch (err) {
       const message =
@@ -181,7 +243,6 @@ export function DataProvider({ children }: { children: ReactNode }) {
       setIsLoading(false);
     }
   };
-
   const performBatchScreening = async (file: File) => {
     setBatchLoading(true);
     setError(null);
