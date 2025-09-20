@@ -1,0 +1,74 @@
+// GET
+// /alert-analysis
+
+
+
+
+
+
+{
+  "success": true,
+  "status": 200,
+  "data": [
+    {
+      "label": "Jan 2024",
+      "positive": 0,
+      "negative": 0
+    },
+    {
+      "label": "Feb 2024",
+      "positive": 0,
+      "negative": 0
+    },
+    {
+      "label": "Mar 2024",
+      "positive": 0,
+      "negative": 0
+    },
+    {
+      "label": "Apr 2024",
+      "positive": 0,
+      "negative": 0
+    },
+    {
+      "label": "May 2024",
+      "positive": 0,
+      "negative": 0
+    },
+    {
+      "label": "Jun 2024",
+      "positive": 0,
+      "negative": 0
+    },
+    {
+      "label": "Jul 2024",
+      "positive": 0,
+      "negative": 0
+    },
+    {
+      "label": "Aug 2024",
+      "positive": 0,
+      "negative": 0
+    },
+    {
+      "label": "Sep 2024",
+      "positive": 0,
+      "negative": 0
+    },
+    {
+      "label": "Oct 2024",
+      "positive": 0,
+      "negative": 0
+    },
+    {
+      "label": "Nov 2024",
+      "positive": 0,
+      "negative": 0
+    },
+    {
+      "label": "Dec 2024",
+      "positive": 0,
+      "negative": 0
+    }
+  ]
+}

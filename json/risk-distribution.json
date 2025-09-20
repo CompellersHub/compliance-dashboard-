@@ -1,0 +1,12 @@
+GET
+/risk-distribution
+
+{
+  "success": true,
+  "status": 200,
+  "data": {
+    "Low": 5,
+    "High": 0,
+    "Medium": 1
+  }
+}

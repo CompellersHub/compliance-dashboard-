@@ -1,0 +1,69 @@
+GET
+/monthly-screening
+
+{
+  "success": true,
+  "status": 200,
+  "data": [
+    {
+      "label": "Jan",
+      "totalScreening": 0,
+      "alertGenerate": 0
+    },
+    {
+      "label": "Feb",
+      "totalScreening": 0,
+      "alertGenerate": 0
+    },
+    {
+      "label": "Mar",
+      "totalScreening": 0,
+      "alertGenerate": 0
+    },
+    {
+      "label": "Apr",
+      "totalScreening": 0,
+      "alertGenerate": 0
+    },
+    {
+      "label": "May",
+      "totalScreening": 0,
+      "alertGenerate": 0
+    },
+    {
+      "label": "Jun",
+      "totalScreening": 0,
+      "alertGenerate": 0
+    },
+    {
+      "label": "Jul",
+      "totalScreening": 0,
+      "alertGenerate": 6
+    },
+    {
+      "label": "Aug",
+      "totalScreening": 0,
+      "alertGenerate": 0
+    },
+    {
+      "label": "Sep",
+      "totalScreening": 0,
+      "alertGenerate": 0
+    },
+    {
+      "label": "Oct",
+      "totalScreening": 0,
+      "alertGenerate": 0
+    },
+    {
+      "label": "Nov",
+      "totalScreening": 0,
+      "alertGenerate": 0
+    },
+    {
+      "label": "Dec",
+      "totalScreening": 0,
+      "alertGenerate": 0
+    }
+  ]
+}
